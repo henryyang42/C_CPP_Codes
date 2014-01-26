@@ -1,8 +1,8 @@
-#include<stdio.h>
+#include<cstdio>
 #include<stack>
-#include<string.h>
-#include<ctype.h>
-
+#include<cstring>
+#include<cctype>
+using namespace std;
 int rank(char c){
 	switch(c){
 		case '(': return 0;
