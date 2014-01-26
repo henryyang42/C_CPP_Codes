@@ -14,7 +14,6 @@ int main(){
 				for(i = a; i > 0; i--, putchar(10))
 					for(j = 0; j < i; j++)
 						putchar('0' + i);
-				
 			}
 		}
 	return 0;
