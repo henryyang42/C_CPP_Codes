@@ -2,7 +2,7 @@
 #This script help reomve garbage file like a.out, *.o, and executables
 
 
-for dirpath in "2014_-_寒訓" "NTHU_OJ_Codes"
+for dirpath in "NTHU_OJ_Codes"
 do
     cd ${dirpath}/
     #Replace space with '_' first
