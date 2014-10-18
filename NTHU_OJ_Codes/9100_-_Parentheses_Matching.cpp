@@ -1,4 +1,6 @@
 #include<stdio.h>
+#include<stack>
+using namespace std;
 int returnvalue(char c){
 	switch(c){
 		case '{':
@@ -18,43 +20,38 @@ int returnvalue(char c){
 		case '>':
 			return 8;
 		default:
-			return 0;	
-	}	
+			return 0;
+	}
 }
 int main(){
 	int a, i, j, cti = 0;
-	char s[1001];
-	while(scanf("%d", &a) > 0)
-		for(i = 1, getchar(); i <= a; i++){
-			cti++;
-			char ct[1001] = {0}, fg = 1, top = 0;
-			gets(s);
-			j = 0;
-			while(s[j]){
-				int ret = returnvalue(s[j]);
-				if(ret > 4){
-					int k;
-					if(ct[--top] != ret - 4){
-						fg = 0;
-						break;
-					}
-					j++;
-					continue;	
+	char s[10001];
+	scanf("%d", &a);
+	getchar();
+	for(i = 1; i <= a; i++){
+		cti++;
+		stack<int> S;
+		char ct[10001] = {0}, fg = 1, top = 0;
+		gets(s);
+		j = 0;
+		while(s[j]){
+			int ret = returnvalue(s[j++]);
+			if(ret > 4){
+				if(!S.empty() && S.top() != ret-4 || S.empty()){
+					fg = 0;
+					break;
 				}
-				if(!ret){
-					j++;
-					continue;	
-				}
-				else{
-					ct[top++] = ret;
-					j++;
-				}
+				S.pop();
 			}
-			printf("Case %d: ", cti);
-			if(fg && !top)
-				puts("Yes");
-			else
-				puts("No");
+			else if(ret && ret <= 4){
+				S.push(ret);
+			}
+		}
+		printf("Case %d: ", cti);
+		if(fg && S.empty())
+			puts("Yes");
+		else
+			puts("No");
 		}
     return 0;
 }
