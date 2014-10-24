@@ -11,8 +11,6 @@
 using namespace std;
 long long s[1000001], t[1000001], tot, x, ans;
 int main(int argc, char *argv[]) {
-	//freopen("in", "r", stdin);
-	//freopen("out", "w", stdout);
 	int n;
 	while (scanf("%d", &n) > 0) {
 		ans = tot = 0;

@@ -16,8 +16,6 @@ struct Job {
 	}
 } s[1001];
 int main(int argc, char *argv[]) {
-	//freopen("in", "r", stdin);
-	//freopen("out", "w", stdout);
 	int n, ct = 0;
 	while (scanf("%d", &n), n) {
 		for (int i = 0; i < n; i++)

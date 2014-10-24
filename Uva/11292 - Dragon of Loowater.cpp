@@ -11,8 +11,6 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-	//freopen("in", "r", stdin);
-	//freopen("out", "w", stdout);
 	int n, m, dragon[20001], knight[20001];
 	while (scanf("%d%d", &n, &m), n + m) {
 		for (int i = 0; i < n; i++)
