@@ -4,7 +4,7 @@
 sh remove_garbage.sh
 echo 'remove garbage done'
 
-git update
+git pull
 #git add all 
 git add .
 #git commit
