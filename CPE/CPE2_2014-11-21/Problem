@@ -1,0 +1,23 @@
+Problem Description
+Given an article, calculate the value of each character and output them in the descending order of their values.  The price of characters is calculated as follows:  1 dollar for a letter ‘a’, 2 dollars for a letter ‘b’ … and 26 dollars for a letter ‘z’. 'A' and 'a' are not the same in this problem, uppercase letters are considered to be much more valuable than lowercase letters. If a lowercase letter costs X dollars, then the uppercase letter of it should cost X^2 dollars. For example, we know that 'c' costs 3 dollars, then 'C' should cost 9 dollars. 
+Please count the total value of lowercase and uppercase letters in the article, can you help us with that?
+
+
+Input
+There are multiple articles in the input. In each test case, the first line contains one integer, N, which indicates the number of lines in the article.
+
+Note that each line may contains up to 10^7 characters.
+
+Case 1
+0 < N <=10
+Case 2
+0 < N <=50
+Case 3
+0 < N <=100
+Case 4
+0 < N <=1000
+
+Output
+Output the total value of each character in the descending order.  Do not print the character not in the article.  If two characters have the same value, output the one with smaller ASCII code first.
+
+Print a blank line after the output of each test case.
