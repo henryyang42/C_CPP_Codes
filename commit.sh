@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 #remove .o, a.out, executables
 sh remove_garbage.sh
 echo 'remove garbage done'
