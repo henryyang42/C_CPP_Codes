@@ -13,64 +13,64 @@ string tiles[] = {
 	"1W", "2W", "3W", "4W", "5W", "6W", "7W", "8W", "9W",
 	"DONG", "NAN", "XI", "BEI", "ZHONG", "FA", "BAI"
 };
-int to_int(string &tile){
-	for(int i = 0; i < 34; i++)
-		if(tile == tiles[i])
+int to_int(string &tile) {
+	for (int i = 0; i < 34; i++)
+		if (tile == tiles[i])
 			return i;
 }
-void dfs(int lv){
-	if(lv == 5 || valid){
+void dfs(int lv) {
+	if (lv == 5 || valid) {
 		valid = 1;
 		return;
 	}
-	if(lv == 0){
-		for(int i = 0; i < 34; i++){
-			if(tmp[i] >= 2){
+	if (lv == 0) {
+		for (int i = 0; i < 34; i++) {
+			if (tmp[i] >= 2) {
 				tmp[i] -= 2;
-				dfs(lv+1);
+				dfs(lv + 1);
 				tmp[i] += 2;
 			}
 		}
 	}
-	else{
-		for(int i = 0; i < 34; i++){
-			if(tmp[i] >= 3){
+	else {
+		for (int i = 0; i < 34; i++) {
+			if (tmp[i] >= 3) {
 				tmp[i] -= 3;
-				dfs(lv+1);
+				dfs(lv + 1);
 				tmp[i] += 3;
 			}
-			if(i < 27 && i/9 == (i+2)/9 && tmp[i] && tmp[i+1] && tmp[i+2]){
-				tmp[i]--, tmp[i+1]--, tmp[i+2]--;
-				dfs(lv+1);
-				tmp[i]++, tmp[i+1]++, tmp[i+2]++;
+			if (i < 27 && i / 9 == (i + 2) / 9 && tmp[i] && tmp[i + 1] && tmp[i + 2]) {
+				tmp[i]--, tmp[i + 1]--, tmp[i + 2]--;
+				dfs(lv + 1);
+				tmp[i]++, tmp[i + 1]++, tmp[i + 2]++;
 			}
 		}
 	}
 }
-int main(){
+int main() {
 	string tok, str;
-	while(getline(cin, str)){
-		if(str == "0")
+	while (getline(cin, str)) {
+		if (str == "0")
 			break;
 		memset(tile_ct, 0, sizeof(tile_ct));
 		ans.clear();
 		stringstream ss(str);
-		while(ss >> tok)
+		while (ss >> tok)
 			tile_ct[to_int(tok)]++;
-		for(int i = 0; i < 34; i++)
-			if(tile_ct[i] < 4){
+		for (int i = 0; i < 34; i++)
+			if (tile_ct[i] < 4) {
 				valid = 0;
 				memcpy(tmp, tile_ct, sizeof(tile_ct));
 				tmp[i]++;
 				dfs(0);
-				if(valid)
+				if (valid)
 					ans.push_back(i);
 			}
 		printf("Case %d: ", ++kase);
-		if(ans.size() == 0)
+		if (ans.size() == 0)
 			puts("Not ready");
-		else{
-			for(int i = 0; i < ans.size(); i++)
+		else {
+			for (int i = 0; i < ans.size(); i++)
 				cout << (i ? " " : "") << tiles[ans[i]];
 			puts("");
 		}
