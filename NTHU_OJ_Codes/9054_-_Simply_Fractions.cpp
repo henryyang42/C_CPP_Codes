@@ -5,7 +5,7 @@ int gcd(int a, int b){
 			a %= b;
 		else
 			b %= a;
-	return a + b;	
+	return a + b;
 }
 int a, b, c, d, e;
 int main(){
